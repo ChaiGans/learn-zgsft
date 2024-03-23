@@ -1,13 +1,15 @@
 function letterConverter(letter: string): string {
-  let lowerLetter = letter.toLowerCase();
-
-  switch (lowerLetter) {
+  switch (letter) {
     case "a":
       return "b";
     case "i":
       return "j";
     case "u":
       return "v";
+    case "V":
+      return "U";
+    case "v":
+      return "u";
     case "e":
       return "f";
     case "o":
@@ -34,14 +36,15 @@ function isLowerCase(str: string) {
 function passwordGenerator(password: string): string {
   let wordEncryptedReversed = wordConverter(password).split("").reverse();
   let newEncrypted = "";
-  for (let letter of wordEncryptedReversed) {
+  wordEncryptedReversed.map((letter) => {
     if (isLowerCase(letter)) {
       newEncrypted += letter.toUpperCase();
     } else {
       newEncrypted += letter.toLowerCase();
     }
-  }
+  })
   return newEncrypted.concat().replace(" ", "");
 }
 
 console.log(passwordGenerator("Vika Vitaloka"));
+// BKPLBTJuBKJu.
